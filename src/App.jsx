@@ -1,9 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { tables } from './api/request'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  const fetch = async () => {
+    const res = await tables()
+    console.log(res)
+  }
+
+  useEffect(() => {
+    fetch()
+  }, [])
 
   return (
     <div className="App">
